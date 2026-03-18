@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>NOVEXA Nutrition</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg,#eef2ff,#f8fafc);
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#111;
+padding:15px 30px;
+color:white;
+}
+
+.logo{
+font-size:28px;
+font-weight:bold;
+letter-spacing:3px;
+}
+
+.nav-links a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+text-align:center;
+padding:80px 20px;
+background:white;
+}
+
+.hero h1{
+font-size:46px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:gray;
+font-size:18px;
+}
+
+/* SLIDER */
+
+.slider{
+overflow:hidden;
+background:white;
+padding:30px 0;
+}
+
+.slide-track{
+display:flex;
+width:calc(300px * 8);
+animation:scroll 20s linear infinite;
+}
+
+.slide{
+width:300px;
+margin:0 20px;
+text-align:center;
+}
+
+.slide img{
+width:300px;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.slide-title{
+font-weight:bold;
+margin-top:8px;
+font-size:14px;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+/* PRODUCTS */
+
+.products{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding:50px;
+}
+
+.product{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+cursor:pointer;
+text-align:center;
+transition:0.4s;
+}
+
+.product:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.product img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.product h3{
+font-size:16px;
+}
+
+/* ABOUT */
+
+.about{
+padding:60px 20px;
+background:white;
+text-align:center;
+}
+
+/* BENEFITS */
+
+.benefits{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+padding:50px;
+}
+
+.benefit{
+background:white;
+padding:25px;
+border-radius:10px;
+width:220px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* FEEDBACK */
+
+.feedback{
+text-align:center;
+padding:60px;
+background:white;
+}
+
+.feedback button{
+padding:15px 35px;
+background:linear-gradient(45deg,#4f46e5,#6366f1);
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+background:#111;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+/* POPUP */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+}
+
+.modal-content{
+background:white;
+width:70%;
+margin:3% auto;
+padding:30px;
+border-radius:10px;
+text-align:left;
+max-height:85vh;
+overflow-y:auto;
+line-height:1.6;
+}
+
+.modal img{
+width:200px;
+margin:10px;
+border-radius:10px;
+}
+
+.close{
+float:right;
+font-size:28px;
+cursor:pointer;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.navbar{
+flex-direction:column;
+}
+
+.slide img{
+width:250px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+<div class="logo">NOVEXA</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About</a>
+<a href="#feedback">Feedback</a>
+</div>
+</div>
+
+<!-- HERO -->
+
+<section class="hero" data-aos="fade-up">
+<h1>Smart Nutrition for Everyday Health</h1>
+<p>Innovative functional snacks from NOVEXA</p>
+</section>
+
+<!-- SLIDER -->
+
+<div class="slider" data-aos="fade-up">
+<div class="slide-track">
+
+<div class="slide">
+<img src="powder.jpg">
+<p class="slide-title">Gut Health Supportive Proteinaceous Drink Mix</p>
+</div>
+
+<div class="slide">
+<img src="crunch.jpg">
+<p class="slide-title">Brain and Cognitive Health Supportive Crunches</p>
+</div>
+
+<div class="slide">
+<img src="cube.jpg">
+<p class="slide-title">Growth and Bone Development Choco Cubes</p>
+</div>
+
+<div class="slide">
+<img src="cookie.jpg">
+<p class="slide-title">Immune Supportive Chocolate Filled Cookies</p>
+</div>
+
+<!-- duplicate -->
+
+<div class="slide">
+<img src="powder.jpg">
+<p class="slide-title">Gut Health Supportive Proteinaceous Drink Mix</p>
+</div>
+
+<div class="slide">
+<img src="crunch.jpg">
+<p class="slide-title">Brain and Cognitive Health Supportive Crunches</p>
+</div>
+
+<div class="slide">
+<img src="cube.jpg">
+<p class="slide-title">Growth and Bone Development Choco Cubes</p>
+</div>
+
+<div class="slide">
+<img src="cookie.jpg">
+<p class="slide-title">Immune Supportive Chocolate Filled Cookies</p>
+</div>
+
+</div>
+</div>
+
+<!-- PRODUCTS -->
+
+<div id="products" class="products">
+
+<div class="product" onclick="openProduct('cookie')" data-aos="zoom-in">
+<img src="cookie.jpg">
+<h3>Immune Supportive Chocolate Filled Cookies</h3>
+</div>
+
+<div class="product" onclick="openProduct('cube')" data-aos="zoom-in">
+<img src="cube.jpg">
+<h3>Growth and Bone Development Choco Cubes</h3>
+</div>
+
+<div class="product" onclick="openProduct('crunch')" data-aos="zoom-in">
+<img src="crunch.jpg">
+<h3>Brain and Cognitive Health Supportive Crunches</h3>
+</div>
+
+<div class="product" onclick="openProduct('powder')" data-aos="zoom-in">
+<img src="powder.jpg">
+<h3>Gut Health Supportive Proteinaceous Drink Mix</h3>
+</div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="about" data-aos="fade-right">
+<h2>About NOVEXA</h2>
+<p>
+NOVEXA develops innovative functional nutrition products combining
+great taste with scientifically supported health benefits.
+</p>
+</div>
+
+<!-- BENEFITS -->
+
+<div class="benefits">
+
+<div class="benefit" data-aos="flip-left">
+<h3>Brain Support</h3>
+<p>Supports mental development and focus.</p>
+</div>
+
+<div class="benefit" data-aos="flip-left">
+<h3>Bone Strength</h3>
+<p>Essential nutrients supporting stronger bones.</p>
+</div>
+
+<div class="benefit" data-aos="flip-left">
+<h3>Gut Health</h3>
+<p>Prebiotic ingredients for healthy digestion.</p>
+</div>
+
+<div class="benefit" data-aos="flip-left">
+<h3>Energy</h3>
+<p>Protein rich snacks for daily energy.</p>
+</div>
+
+</div>
+
+<!-- FEEDBACK -->
+
+<div id="feedback" class="feedback" data-aos="fade-up">
+
+<h2>Give Your Feedback</h2>
+
+<p>Help us improve NOVEXA products.</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8sEJpd9IWVkkzREte0OY1uLSaQkv8-fviJUX90HC8efD7dQ/viewform" target="_blank">
+<button>Submit Feedback</button>
+</a>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+<p>© 2026 NOVEXA Nutrition</p>
+</div>
+
+<!-- PRODUCT POPUP -->
+
+<div id="productModal" class="modal">
+<div class="modal-content">
+
+<span class="close" onclick="closeModal()">×</span>
+
+<h2 id="productTitle"></h2>
+<div id="productImages"></div>
+<p id="productDesc"></p>
+
+</div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({duration:1000});
+
+function openProduct(product){
+
+let title=""
+let desc=""
+let images=""
+
+if(product=="cookie"){
+title="Immune Supportive Chocolate Filled Cookies"
+desc=`
+<h3>Short Description</h3>
+<p>
+A thoughtfully developed chocolate-filled functional cookie designed to support everyday immunity in children.
+Formulated with key immune-supporting nutrients, it combines taste and science to make daily wellness easy and enjoyable.
+</p>
+
+<h3>Key Benefits</h3>
+<ul>
+<li>Supports optimal immune cell function and response.</li>
+<li>Provides powerful antioxidant protection against oxidative stress.</li>
+<li>Helps regulate balanced immune response (not overactive or weak).</li>
+<li>Supports recovery from everyday immune challenges.</li>
+<li>Enhances micronutrient support essential for growing children.</li>
+<li>Convenient alternative to traditional supplements.</li>
+<li>Kid-friendly format for better compliance.</li>
+</ul>
+
+<h3>What’s Inside</h3>
+<ul>
+<li>Vitamin C</li>
+<li>Zinc (Zinc bisglycinate)</li>
+<li>Quercetin (plant-based antioxidant flavonoid)</li>
+</ul>
+
+<h3>How It Helps (Mechanism)</h3>
+<ul>
+<li><b>Vitamin C:</b> Enhances activity of immune cells (neutrophils, lymphocytes) and reduces oxidative damage.</li>
+<li><b>Zinc:</b> Supports development and activation of immune cells (T-lymphocytes), maintains immune barriers, and shows antiviral activity.</li>
+<li><b>Quercetin:</b> Acts as antioxidant and regulates inflammation for balanced immune response.</li>
+</ul>
+
+<h3>Who Is It For?</h3>
+<ul>
+<li>Children aged 2–8 years (10 g cookie)</li>
+<li>Children aged 9–16 years (10 g cookie)</li>
+<li>Kids needing daily immune support</li>
+<li>Children with low micronutrient intake</li>
+</ul>
+
+<h3>How to Use</h3>
+<ul>
+<li>Recommended: 1 cookie per day</li>
+<li>Maximum: 2 cookies per day</li>
+<li>Best taken after meals</li>
+<li>Or as advised by a healthcare professional</li>
+</ul>
+
+<h3>Safety Concerns</h3>
+<ul>
+<li>Do not exceed recommended daily intake</li>
+<li>Not suitable for children below 2 years</li>
+<li>Contains milk/soy</li>
+<li>Store in a cool, dry place away from sunlight</li>
+<li>Consult healthcare professional if needed</li>
+</ul>
+
+<p>
+<b>Note:</b> This product is currently in the development and testing phase. It is being formulated in FSSAI-approved facilities and tested in NABL-accredited labs. We are refining it based on expert and parent feedback.
+</p>
+
+<h3>FAQs</h3>
+<p><b>Q1. Is this a medicine or supplement?</b><br>
+This is a functional nutrition product designed to support immunity.</p>
+
+<p><b>Q2. Can it prevent infections?</b><br>
+It supports immune health but does not prevent or treat diseases.</p>
+
+<p><b>Q3. Is it safe for daily use?</b><br>
+Yes, within recommended dosage.</p>
+
+<p><b>Q4. Will kids like the taste?</b><br>
+Yes, it is designed as a chocolate-filled cookie for better taste.</p>
+
+<h3>Disclaimer</h3>
+<p>
+This product is under development. Information is for awareness and feedback purposes only.
+It is not intended to diagnose, treat, cure, or prevent any disease.
+Please consult a healthcare professional before use.
+</p>`
+
+images=`<img src="cookie1.jpg"><img src="cookie2.jpg"><img src="cookie3.jpg"><img src="cookie4.jpg"><img src="cookie5.jpg">`
+}
+
+if(product=="cube"){
+title="Growth and Bone Development Choco Cubes"
+desc = `<h3>Short Description</h3>
+<p>
+A thoughtfully designed chocolate-based functional nutrition cube that supports healthy growth and bone development in children.
+Enriched with essential bone-supporting nutrients, it provides a tasty and convenient alternative to traditional supplements.
+</p>
+
+<h3>Key Benefits</h3>
+<ul>
+<li>Supports bone strength and density</li>
+<li>Promotes healthy height and growth development</li>
+<li>Aids calcium absorption and utilization</li>
+<li>Helps meet daily nutritional needs for growing children</li>
+<li>Kid-friendly chocolate format for better acceptance</li>
+</ul>
+
+<h3>What’s Inside</h3>
+<ul>
+<li>Calcium (Calcium carbonate)</li>
+<li>Vitamin D3</li>
+<li>Vitamin K2</li>
+<li>Magnesium (Magnesium oxide)</li>
+</ul>
+
+<h3>How It Helps (Mechanism)</h3>
+<ul>
+<li><b>Vitamin D3:</b> Enhances calcium absorption from the intestine</li>
+<li><b>Vitamin K2:</b> Directs calcium towards bone tissue</li>
+<li><b>Calcium:</b> Acts as the core structural mineral for bones</li>
+<li><b>Magnesium:</b> Supports Vitamin D activation and bone matrix formation</li>
+</ul>
+
+<p>
+Once calcium is absorbed from the intestine, it is directed into bone tissue, improving mineralization.
+This process helps regulate calcium metabolism, resulting in stronger bones and healthy growth.
+</p>
+
+<h3>Who Is It For?</h3>
+<ul>
+<li>Children aged 2–8 years (5 g cube)</li>
+<li>Children aged 9–16 years (8 g cube)</li>
+<li>Growing children needing bone and nutritional support</li>
+<li>Kids with low dietary calcium intake</li>
+</ul>
+
+<h3>How to Use</h3>
+<ul>
+<li>Recommended: 1 cube per day</li>
+<li>Maximum: 2 cubes per day</li>
+<li>Best taken after meals</li>
+<li>Or as advised by a healthcare professional</li>
+</ul>
+
+<h3>Safety Concerns</h3>
+<ul>
+<li>Do not exceed recommended daily intake</li>
+<li>Not suitable for children below 2 years</li>
+<li>Contains milk/soy</li>
+<li>Store in a cool, dry place away from sunlight</li>
+<li>Consult a healthcare professional if needed</li>
+</ul>
+
+<p>
+<b>Note:</b> This product is currently in the development and testing phase.
+It is being formulated in FSSAI-approved facilities and tested in NABL-accredited laboratories.
+We are actively refining this product based on expert and parent feedback.
+</p>
+
+<h3>FAQs</h3>
+
+<p><b>Q1. Is this a medicine or a supplement?</b><br>
+This is a functional nutrition product designed to support daily growth and bone health.</p>
+
+<p><b>Q2. Can it replace calcium syrups or tablets?</b><br>
+It is designed as a convenient alternative, but consult a healthcare professional for specific needs.</p>
+
+<p><b>Q3. Is it safe for daily use?</b><br>
+Yes, when used within the recommended dosage.</p>
+
+<p><b>Q4. Will children like the taste?</b><br>
+It is developed in a chocolate format to improve acceptability among children.</p>
+
+<h3>Disclaimer</h3>
+<p>
+This product is under development. Information provided is for awareness and feedback purposes only.
+It is not intended to diagnose, treat, cure, or prevent any disease.
+Please consult a healthcare professional before use.
+</p>`
+images=`<img src="cube1.jpg"><img src="cube2.jpg"><img src="cube3.jpg"><img src="cube4.jpg"><img src="cube5.jpg"><img src="cube6.jpg">`
+}
+
+if(product=="crunch"){
+title="Brain and Cognitive Health Supportive Crunches"
+desc=`
+<h3>Short Description</h3>
+<p>
+A functional crunchy snack designed to support brain development and cognitive health in children.
+Enriched with essential nutrients known to support brain function, it combines nutrition and taste
+to enhance learning, memory, and overall mental performance.
+</p>
+
+<h3>Key Benefits</h3>
+<ul>
+<li>Supports normal brain development and function</li>
+<li>Improves memory, focus, and learning ability</li>
+<li>Provides essential nutrients for cognitive performance</li>
+<li>Supports nervous system health</li>
+<li>Child-friendly crunchy format for consistent intake</li>
+</ul>
+
+<h3>What’s Inside</h3>
+<ul>
+<li>Vitamin B12</li>
+<li>Iodine (Potassium iodate)</li>
+<li>DHA (Docosahexaenoic acid)</li>
+</ul>
+
+<h3>How It Helps (Mechanism)</h3>
+
+<p><b>1. DHA (Docosahexaenoic Acid)</b></p>
+<ul>
+<li>Major structural fat in the brain (cerebral cortex)</li>
+<li>Supports formation of neuronal cell membranes</li>
+<li>Improves communication between brain cells (synaptic plasticity)</li>
+<li>Enhances signal transmission speed</li>
+</ul>
+
+<p><b>2. Vitamin B12</b></p>
+<ul>
+<li>Essential for myelin sheath formation (nerve protection)</li>
+<li>Supports proper nerve signal conduction</li>
+</ul>
+
+<p><b>3. Iodine (Potassium Iodate)</b></p>
+<ul>
+<li>Required for thyroid hormone production (T3 & T4)</li>
+<li>Supports brain development and neuronal maturation</li>
+</ul>
+
+<h3>Who Is It For?</h3>
+<ul>
+<li>Children aged 2–8 years (10 g crunch)</li>
+<li>Children aged 9–16 years (10 g crunch)</li>
+<li>Kids in learning and developmental stages</li>
+<li>Children needing cognitive and nutritional support</li>
+</ul>
+
+<h3>How to Use</h3>
+<ul>
+<li>Recommended: 1 crunch per day</li>
+<li>Maximum: 2 crunch per day</li>
+<li>Best taken after meals</li>
+<li>Or as advised by a healthcare professional</li>
+</ul>
+
+<h3>Safety Concerns</h3>
+<ul>
+<li>Do not exceed recommended intake</li>
+<li>Not suitable for children below 2 years</li>
+<li>Contains milk/soy/wheat (based on formulation)</li>
+<li>Store in a cool, dry place</li>
+<li>Consult a doctor if the child has medical conditions or thyroid issues</li>
+</ul>
+
+<p>
+<b>Note:</b> This product is currently in the development and testing phase.
+It is being formulated in FSSAI-approved facilities and tested in NABL-accredited laboratories.
+We are refining it based on expert and parent feedback.
+</p>
+
+<h3>FAQs</h3>
+
+<p><b>Q1. Is this a brain booster?</b><br>
+It supports normal brain development and cognitive function through essential nutrients.</p>
+
+<p><b>Q2. Will it improve memory instantly?</b><br>
+It supports long-term brain health, not instant results.</p>
+
+<p><b>Q3. Is it safe for daily use?</b><br>
+Yes, within recommended dosage.</p>
+
+<p><b>Q4. Can it replace a balanced diet?</b><br>
+No, it complements a healthy diet.</p>
+
+<h3>Disclaimer</h3>
+<p>
+This product is under development. Information provided is for awareness and feedback purposes only.
+It is not intended to diagnose, treat, cure, or prevent any disease.
+Please consult a healthcare professional before use.
+</p>`
+images=`<img src="crunch1.jpg"><img src="crunch2.jpg"><img src="crunch3.jpg"><img src="crunch4.jpg"><img src="crunch5.jpg">`
+}
+
+if(product=="powder"){
+title="Gut Health Supportive Proteinaceous Drink Mix"
+desc=`<h3>Short Description</h3>
+<p>
+A scientifically designed nutritional drink mix that supports gut health, digestion, and nutrient absorption in children.
+Enriched with protein, prebiotics, probiotics, and digestive enzymes, it helps build a strong digestive foundation for overall growth and wellness.
+</p>
+
+<h3>Key Benefits</h3>
+<ul>
+<li>Supports a healthy gut microbiome balance</li>
+<li>Enhances digestion and nutrient absorption</li>
+<li>Provides protein support for growth and development</li>
+<li>Supports immune system through healthy gut function</li>
+<li>Helps bridge nutritional gaps in growing children</li>
+</ul>
+
+<h3>What’s Inside</h3>
+<ul>
+<li>Milk whey protein</li>
+<li>Prebiotic (Inulin)</li>
+<li>Probiotics (Lactobacillus & Bifidobacterium species)</li>
+<li>Digestive enzyme blend (Amylase, Lipase, Protease, Lactase)</li>
+</ul>
+
+<h3>How It Helps (Mechanism)</h3>
+
+<p><b>1. Prebiotic (Inulin)</b></p>
+<ul>
+<li>Enhances growth of beneficial gut bacteria</li>
+<li>Improves gut lining integrity</li>
+<li>Supports mineral absorption (calcium, magnesium)</li>
+</ul>
+
+<p><b>2. Probiotics (Lactobacillus & Bifidobacterium)</b></p>
+<ul>
+<li>Maintain healthy gut microbiome balance</li>
+<li>Reduce digestive disturbances</li>
+<li>Support immune signaling (gut = major immune organ)</li>
+</ul>
+
+<p><b>3. Digestive Enzymes Blend</b></p>
+<ul>
+<li>Improves digestion efficiency</li>
+<li>Reduces bloating and discomfort</li>
+<li>Enhances nutrient availability for absorption</li>
+</ul>
+
+<p><b>4. Milk Whey Protein</b></p>
+<ul>
+<li>Supports growth and development</li>
+<li>Works effectively with improved digestion</li>
+<li>Provides essential amino acids for tissue repair</li>
+</ul>
+
+<h3>Who Is It For?</h3>
+<ul>
+<li>Children aged 2–5 years</li>
+<li>Children aged 6–10 years</li>
+<li>Children aged 11–16 years</li>
+<li>Kids with digestive issues or low appetite</li>
+<li>Children needing nutritional and gut health support</li>
+</ul>
+
+<h3>How to Use</h3>
+<ul>
+<li>Use the scoop provided:</li>
+<li>Bottom line → 2–5 years</li>
+<li>Middle line → 6–10 years</li>
+<li>Top line → 11–16 years</li>
+<li>Mix with milk or water</li>
+<li>Consume once daily</li>
+<li>Do not exceed recommended serving</li>
+</ul>
+
+<h3>Safety Concerns</h3>
+<ul>
+<li>Do not exceed recommended intake</li>
+<li>Not suitable for children below 2 years</li>
+<li>Contains milk (whey protein)</li>
+<li>Store in a cool, dry place</li>
+<li>Consult a healthcare professional if child has medical conditions or lactose intolerance</li>
+</ul>
+
+<p>
+<b>Note:</b> This product is currently in the development and testing phase.
+It is being formulated in FSSAI-approved facilities and tested in NABL-accredited laboratories.
+We are refining it based on expert and parent feedback.
+</p>
+
+<h3>FAQs</h3>
+
+<p><b>Q1. What makes this different from regular protein powders?</b><br>
+This product combines protein with probiotics, prebiotics, and enzymes for comprehensive gut and nutritional support.</p>
+
+<p><b>Q2. Can it help with digestion issues?</b><br>
+It is designed to support digestive health and nutrient absorption.</p>
+
+<p><b>Q3. Is it safe for daily use?</b><br>
+Yes, within recommended serving.</p>
+
+<p><b>Q4. Can it replace meals?</b><br>
+No, it is intended to complement a balanced diet.</p>
+
+<h3>Disclaimer</h3>
+<p>
+This product is under development. Information provided is for awareness and feedback purposes only.
+It is not intended to diagnose, treat, cure, or prevent any disease.
+Please consult a healthcare professional before use.
+</p>`
+images=`<img src="powder1.jpg"><img src="powder2.jpg"><img src="powder3.jpg"><img src="powder4.jpg">`
+}
+
+document.getElementById("productTitle").innerText=title
+document.getElementById("productDesc").innerHTML=desc
+document.getElementById("productImages").innerHTML=images
+document.getElementById("productModal").style.display="block"
+}
+
+function closeModal(){
+document.getElementById("productModal").style.display="none"
+}
+
+</script>
+
+</body>
+</html>
