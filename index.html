@@ -396,18 +396,36 @@ great taste with scientifically supported health benefits.
 <p>© 2026 NOVEXA Nutrition</p>
 </div>
 
-<!-- PRODUCT POPUP -->
+<!-- PRODUCT FULL PAGE -->
 
-<div id="productModal" class="modal">
-<div class="modal-content">
+<div id="productPage" style="display:none; padding:30px; background:white;">
 
-<span class="close" onclick="closeModal()">×</span>
+<button onclick="goBack()" style="margin-bottom:20px; padding:10px 20px; cursor:pointer;">
+← Back
+</button>
 
-<h2 id="productTitle"></h2>
-<div id="productImages"></div>
-<p id="productDesc"></p>
+<div style="display:flex; flex-wrap:wrap; gap:30px;">
+
+<!-- LEFT SIDE IMAGES -->
+
+<div style="flex:1; min-width:300px;">
+<img id="mainImage" src="" style="width:100%; border-radius:10px;">
+
+<div id="thumbImages" style="display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;"></div>
+</div>
+
+<!-- RIGHT SIDE CONTENT -->
+
+<div style="flex:1; min-width:300px;">
+
+<h2 id="pageTitle"></h2>
+
+<div id="pageDesc"></div>
 
 </div>
+
+</div>
+
 </div>
 
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
@@ -417,14 +435,31 @@ AOS.init({duration:1000});
 
 function openProduct(product){
 
+// hide homepage
+document.querySelector(".navbar").style.display="none";
+document.querySelector(".hero").style.display="none";
+document.querySelector(".slider").style.display="none";
+document.querySelector(".products").style.display="none";
+document.querySelector(".about").style.display="none";
+document.querySelector(".benefits").style.display="none";
+document.querySelector(".feedback").style.display="none";
+document.querySelector(".footer").style.display="none";
+
+// show product page
+document.getElementById("productPage").style.display="block";
+
 let title=""
 let desc=""
-let images=""
+let images=[]
+let main=""
 
+// COOKIE
 if(product=="cookie"){
 title="Immune Supportive Chocolate Filled Cookies"
-desc=`
-<h3>Short Description</h3>
+main="cookie1.jpg"
+images=["cookie1.jpg","cookie2.jpg","cookie3.jpg","cookie4.jpg","cookie5.jpg"]
+
+desc=`<h3>Short Description</h3>
 <p>
 A thoughtfully developed chocolate-filled functional cookie designed to support everyday immunity in children.
 Formulated with key immune-supporting nutrients, it combines taste and science to make daily wellness easy and enjoyable.
@@ -502,14 +537,26 @@ Yes, it is designed as a chocolate-filled cookie for better taste.</p>
 This product is under development. Information is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>`
+</p>
+<hr>
 
-images=`<img src="cookie1.jpg"><img src="cookie2.jpg"><img src="cookie3.jpg"><img src="cookie4.jpg"><img src="cookie5.jpg">`
+<h3>Give Your Feedback</h3>
+<p>Your feedback helps us improve NOVEXA products.</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8sEJpd9IWVkkzREte0OY1uLSaQkv8-fviJUX90HC8efD7dQ/viewform" target="_blank">
+<button style="padding:12px 25px; background:#4f46e5; color:white; border:none; border-radius:6px; cursor:pointer;">
+Submit Feedback
+</button>
+</a>`
 }
 
+// CUBE
 if(product=="cube"){
 title="Growth and Bone Development Choco Cubes"
-desc = `<h3>Short Description</h3>
+main="cube1.jpg"
+images=["cube1.jpg","cube2.jpg","cube3.jpg","cube4.jpg","cube5.jpg","cube6.jpg"]
+
+desc=`<h3>Short Description</h3>
 <p>
 A thoughtfully designed chocolate-based functional nutrition cube that supports healthy growth and bone development in children.
 Enriched with essential bone-supporting nutrients, it provides a tasty and convenient alternative to traditional supplements.
@@ -595,14 +642,26 @@ It is developed in a chocolate format to improve acceptability among children.</
 This product is under development. Information provided is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>`
-images=`<img src="cube1.jpg"><img src="cube2.jpg"><img src="cube3.jpg"><img src="cube4.jpg"><img src="cube5.jpg"><img src="cube6.jpg">`
+</p>
+<hr>
+
+<h3>Give Your Feedback</h3>
+<p>Your feedback helps us improve NOVEXA products.</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8sEJpd9IWVkkzREte0OY1uLSaQkv8-fviJUX90HC8efD7dQ/viewform" target="_blank">
+<button style="padding:12px 25px; background:#4f46e5; color:white; border:none; border-radius:6px; cursor:pointer;">
+Submit Feedback
+</button>
+</a>`
 }
 
+// CRUNCH
 if(product=="crunch"){
 title="Brain and Cognitive Health Supportive Crunches"
-desc=`
-<h3>Short Description</h3>
+main="crunch1.jpg"
+images=["crunch1.jpg","crunch2.jpg","crunch3.jpg","crunch4.jpg","crunch5.jpg"]
+
+desc=`<h3>Short Description</h3>
 <p>
 A functional crunchy snack designed to support brain development and cognitive health in children.
 Enriched with essential nutrients known to support brain function, it combines nutrition and taste
@@ -697,12 +756,25 @@ No, it complements a healthy diet.</p>
 This product is under development. Information provided is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>`
-images=`<img src="crunch1.jpg"><img src="crunch2.jpg"><img src="crunch3.jpg"><img src="crunch4.jpg"><img src="crunch5.jpg">`
+</p>
+<hr>
+
+<h3>Give Your Feedback</h3>
+<p>Your feedback helps us improve NOVEXA products.</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8sEJpd9IWVkkzREte0OY1uLSaQkv8-fviJUX90HC8efD7dQ/viewform" target="_blank">
+<button style="padding:12px 25px; background:#4f46e5; color:white; border:none; border-radius:6px; cursor:pointer;">
+Submit Feedback
+</button>
+</a>`
 }
 
+// POWDER
 if(product=="powder"){
 title="Gut Health Supportive Proteinaceous Drink Mix"
+main="powder1.jpg"
+images=["powder1.jpg","powder2.jpg","powder3.jpg","powder4.jpg","powder6.jpg"]
+
 desc=`<h3>Short Description</h3>
 <p>
 A scientifically designed nutritional drink mix that supports gut health, digestion, and nutrient absorption in children.
@@ -810,18 +882,40 @@ No, it is intended to complement a balanced diet.</p>
 This product is under development. Information provided is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>`
-images=`<img src="powder1.jpg"><img src="powder2.jpg"><img src="powder3.jpg"><img src="powder4.jpg">`
+</p>
+<hr>
+
+<h3>Give Your Feedback</h3>
+<p>Your feedback helps us improve NOVEXA products.</p>
+
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8sEJpd9IWVkkzREte0OY1uLSaQkv8-fviJUX90HC8efD7dQ/viewform" target="_blank">
+<button style="padding:12px 25px; background:#4f46e5; color:white; border:none; border-radius:6px; cursor:pointer;">
+Submit Feedback
+</button>
+</a>`
 }
 
-document.getElementById("productTitle").innerText=title
-document.getElementById("productDesc").innerHTML=desc
-document.getElementById("productImages").innerHTML=images
-document.getElementById("productModal").style.display="block"
+// set data
+document.getElementById("pageTitle").innerHTML=title;
+document.getElementById("pageDesc").innerHTML=desc;
+document.getElementById("mainImage").src=main;
+
+// thumbnails
+let thumbs=""
+images.forEach(img=>{
+thumbs += `<img src="${img}" style="width:80px; cursor:pointer; border-radius:8px;" onclick="changeImage('${img}')">`
+})
+document.getElementById("thumbImages").innerHTML=thumbs;
 }
 
-function closeModal(){
-document.getElementById("productModal").style.display="none"
+// change image
+function changeImage(src){
+document.getElementById("mainImage").src=src;
+}
+
+// go back
+function goBack(){
+location.reload();
 }
 
 </script>
