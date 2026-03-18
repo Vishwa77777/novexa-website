@@ -400,9 +400,7 @@ great taste with scientifically supported health benefits.
 
 <div id="productPage" style="display:none; padding:30px; background:white;">
 
-<button onclick="goBack()" style="margin-bottom:20px; padding:10px 20px; cursor:pointer;">
-← Back
-</button>
+
 
 <div style="display:flex; flex-wrap:wrap; gap:30px;">
 
@@ -434,6 +432,10 @@ great taste with scientifically supported health benefits.
 AOS.init({duration:1000});
 
 function openProduct(product){
+window.location.hash = product;
+showProductPage(product);
+}
+function showProductPage(product){
 
 // hide homepage
 document.querySelector(".navbar").style.display="none";
@@ -458,7 +460,6 @@ if(product=="cookie"){
 title="Immune Supportive Chocolate Filled Cookies"
 main="cookie1.jpg"
 images=["cookie1.jpg","cookie2.jpg","cookie3.jpg","cookie4.jpg","cookie5.jpg"]
-
 desc=`<h3>Short Description</h3>
 <p>
 A thoughtfully developed chocolate-filled functional cookie designed to support everyday immunity in children.
@@ -537,8 +538,7 @@ Yes, it is designed as a chocolate-filled cookie for better taste.</p>
 This product is under development. Information is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>
-<hr>
+</p><hr>
 
 <h3>Give Your Feedback</h3>
 <p>Your feedback helps us improve NOVEXA products.</p>
@@ -555,7 +555,6 @@ if(product=="cube"){
 title="Growth and Bone Development Choco Cubes"
 main="cube1.jpg"
 images=["cube1.jpg","cube2.jpg","cube3.jpg","cube4.jpg","cube5.jpg","cube6.jpg"]
-
 desc=`<h3>Short Description</h3>
 <p>
 A thoughtfully designed chocolate-based functional nutrition cube that supports healthy growth and bone development in children.
@@ -642,8 +641,7 @@ It is developed in a chocolate format to improve acceptability among children.</
 This product is under development. Information provided is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>
-<hr>
+</p><hr>
 
 <h3>Give Your Feedback</h3>
 <p>Your feedback helps us improve NOVEXA products.</p>
@@ -660,7 +658,6 @@ if(product=="crunch"){
 title="Brain and Cognitive Health Supportive Crunches"
 main="crunch1.jpg"
 images=["crunch1.jpg","crunch2.jpg","crunch3.jpg","crunch4.jpg","crunch5.jpg"]
-
 desc=`<h3>Short Description</h3>
 <p>
 A functional crunchy snack designed to support brain development and cognitive health in children.
@@ -756,8 +753,7 @@ No, it complements a healthy diet.</p>
 This product is under development. Information provided is for awareness and feedback purposes only.
 It is not intended to diagnose, treat, cure, or prevent any disease.
 Please consult a healthcare professional before use.
-</p>
-<hr>
+</p><hr>
 
 <h3>Give Your Feedback</h3>
 <p>Your feedback helps us improve NOVEXA products.</p>
@@ -773,8 +769,7 @@ Submit Feedback
 if(product=="powder"){
 title="Gut Health Supportive Proteinaceous Drink Mix"
 main="powder1.jpg"
-images=["powder1.jpg","powder2.jpg","powder3.jpg","powder4.jpg","powder6.jpg"]
-
+images=["powder1.jpg","powder2.jpg","powder3.jpg","powder4.jpg","powder5.jpg","powder6.jpg"]
 desc=`<h3>Short Description</h3>
 <p>
 A scientifically designed nutritional drink mix that supports gut health, digestion, and nutrient absorption in children.
@@ -895,30 +890,27 @@ Submit Feedback
 </a>`
 }
 
-// set data
 document.getElementById("pageTitle").innerHTML=title;
 document.getElementById("pageDesc").innerHTML=desc;
 document.getElementById("mainImage").src=main;
 
-// thumbnails
 let thumbs=""
 images.forEach(img=>{
-thumbs += `<img src="${img}" style="width:80px; cursor:pointer; border-radius:8px;" onclick="changeImage('${img}')">`
+thumbs += `<img src="${img}" style="width:80px; cursor:pointer;" onclick="changeImage('${img}')">`
 })
 document.getElementById("thumbImages").innerHTML=thumbs;
 }
+window.onhashchange = function(){
 
-// change image
-function changeImage(src){
-document.getElementById("mainImage").src=src;
+let product = window.location.hash.replace("#","")
+
+if(product){
+showProductPage(product)
+}else{
+// show homepage again
+location.reload()
 }
-
-// go back
-function goBack(){
-location.reload();
 }
-
 </script>
-
 </body>
 </html>
